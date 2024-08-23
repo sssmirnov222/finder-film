@@ -1,0 +1,24 @@
+.searchInput {
+  width: 50%;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 18px;
+}
+
+.searchInput::placeholder {
+  font-size: 18px;
+  font-style: italic;
+  padding-left: 10px;
+}
+
+.seachSubmit {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.seachHeader {
+  color: white;
+  text-align: start;
+  font-family: cursive;
+}

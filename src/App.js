@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import SearchInput from './components/SearchInput/SearchInput';
 import MovieList from './components/MovieList/MovieList';
 
@@ -19,7 +20,7 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          movies: [...res.results].slice(0, 4),
+          movies: [...res.results].slice(0, 6),
         });
       });
   };
@@ -32,7 +33,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <SearchInput handlerInput={this.handlerInput} handlerSubmit={this.handlerSubmit} />
         <MovieList movies={this.state.movies} />
       </div>

@@ -1,0 +1,14 @@
+.movies {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  /* gap: 10px; */
+  justify-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.movies__list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

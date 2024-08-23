@@ -5,11 +5,12 @@ const SearchInput = (props) => {
   return (
     <div>
       <div>
-        <section>
-          <form action="" onSubmit={props.handlerSubmit}>
-            <input type="text" placeholder="Type to search..." onChange={props.handlerInput} />
+        <div>
+          <form action="" onSubmit={props.handlerSubmit} className="seachSubmit">
+            <h1 className="seachHeader">Finder films</h1>
+            <input type="text" className="searchInput" placeholder="Type to search..." onChange={props.handlerInput} />
           </form>
-        </section>
+        </div>
       </div>
     </div>
   );
