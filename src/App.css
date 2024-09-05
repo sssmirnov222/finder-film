@@ -1,3 +1,9 @@
 body {
   background: radial-gradient(circle at 74.2% 50.9%, rgb(14, 72, 222) 5.2%, rgb(3, 22, 65) 75.3%);
 }
+.pagination {
+  margin: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 30%;
+}

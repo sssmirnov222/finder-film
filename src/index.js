@@ -12,9 +12,9 @@ root.render(
       <App />
     </Online>
     <Offline>
-      <>
-        <Alert type="error" message={'Отстутсвует подключение к интернету'}></Alert>
-      </>
+      <div className="alert">
+        <Alert type="error" message={'Error, что-то пошло не так!'} className="alert__error"></Alert>
+      </div>
     </Offline>
   </>
 );

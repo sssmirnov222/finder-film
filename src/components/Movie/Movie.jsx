@@ -1,13 +1,13 @@
 import React from 'react';
 import './Movie.css';
-import { format, parseISO } from 'date-fns';
+// import { format, parseISO } from 'date-fns';
 
 function sliceDescription(text) {
   return text.split('.').slice(0, 1).join('.');
 }
 
 const Movie = (props) => {
-  const data = format(parseISO(props.data), 'MMMM d, y');
+  // const data = format(parseISO(props.data), 'MMMM d, y');
 
   return (
     <div className="movie">
@@ -23,7 +23,7 @@ const Movie = (props) => {
             <div className="movie__average">{props.average.toFixed(1)}</div>
           </section>
 
-          <div className="movie__data">{data}</div>
+          {/* <div className="movie__data">{data}</div> */}
           {/* <Suspense></Suspense> */}
         </div>
         <div className="movie__overview">{sliceDescription(props.overview)}</div>

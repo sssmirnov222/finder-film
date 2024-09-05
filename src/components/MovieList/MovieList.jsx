@@ -7,7 +7,7 @@ const MovieList = (props) => {
   return (
     <div className="movies">
       {props.loading ? (
-        <Spin />
+        <Spin className="spin" />
       ) : (
         props.movies.map((movie, i) => {
           return (
