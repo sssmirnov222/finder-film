@@ -1,5 +1,6 @@
 import React from 'react';
 import './Movie.css';
+import { Rate } from 'antd';
 // import { format, parseISO } from 'date-fns';
 
 function sliceDescription(text) {
@@ -14,7 +15,7 @@ const Movie = (props) => {
       {props.image == null ? (
         <img src={''} alt="none" />
       ) : (
-        <img className="movie__image" src={`http://image.tmdb.org/t/p/w185${props.image}`} alt="ne none" />
+        <img className="movie__image" src={`http://image.tmdb.org/t/p/w185${props.image}`} alt="not" />
       )}
       <section>
         <div>
@@ -27,6 +28,7 @@ const Movie = (props) => {
           {/* <Suspense></Suspense> */}
         </div>
         <div className="movie__overview">{sliceDescription(props.overview)}</div>
+        <Rate count={10} className="movie__rate" />
       </section>
     </div>
   );

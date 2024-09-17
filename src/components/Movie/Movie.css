@@ -2,10 +2,10 @@
   display: flex;
   justify-content: flex-start;
   width: 90%;
-  margin-top: 15px;
   background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(72, 72, 201, 1) 75%, rgba(0, 212, 255, 1) 99%);
   box-shadow: 12px 12px 8px 0px rgba(154, 163, 170, 0.2);
   position: relative;
+  margin-bottom: 10px;
 }
 
 .movie__image {
@@ -46,4 +46,10 @@
   font-family: cursive;
   padding: 10px;
   width: 90%;
+}
+
+.movie__rate {
+  padding-left: 10px;
+  font-size: 14px;
+  display: flex;
 }
