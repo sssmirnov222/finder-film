@@ -7,6 +7,7 @@ import MovieList from './components/MovieList/MovieList';
 import GenresMovies from './components/GenresMovies/GenresMovies';
 // import RatedMovies from './components/RateMovies/RateMovies';
 
+const { TabPane } = Tabs;
 const App = () => {
   const [movies, setMovies] = useState([]); //состояние хранения списка фильмов
   const [loading, setLoading] = useState(false); // состояние загрузки
@@ -16,31 +17,6 @@ const App = () => {
   const [genresList, setGenresList] = useState([]); // список жанров
   const [questSessionId, setQuestSessuonId] = useState(''); // индетификатор сеанса
   const [tabPane, setTabPane] = useState(1); // табуляция
-
-  const items = [
-    {
-      key: '1',
-      label: 'Search',
-    },
-    {
-      key: '2',
-      label: 'Rated',
-    },
-  ];
-
-  // const getDataFromServer = async (url) => {
-  //   try {
-  //     const res = await fetch(url);
-  //     if (!res.ok) {
-  //       throw new Error(`${res.status}`);
-  //     }
-  //     return await res.json();
-  //   } catch (err) {
-  //     // eslint-disable-next-line no-console
-  //     console.error('Возникла проблема с fetch запросом: ', err.message);
-  //     return err.message;
-  //   }
-  // };
 
   // const getRatedMovies = async () => {
   //   const options = {
@@ -62,6 +38,29 @@ const App = () => {
   // };
 
   // console.log(getRatedMovies());
+
+  // const genresMovies = () => {
+  //   const options = {
+  //     method: 'GET',
+  //     headers: {
+  //       accept: 'application/json',
+  //       Authorization:
+  //         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NWQ4NmI1ZDcwODk1YTIwNmMxNDM0MTk0MmUwOWU3ZCIsIm5iZiI6MTcyNTc5NDI4Mi41MDc3NjIsInN1YiI6IjY2MmU1YzEyN2Q1ZGI1MDEyOTNlMjI0MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jm3otsgpf3UQfyqFjdFMRRPMG1QT3_p438LjfNF5fiA',
+  //     },
+  //   };
+
+  //   fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
+  //     .then((response) => response.json())
+  //     .then((response) => setGenresList(response))
+  //     .catch((err) => console.error(err));
+  // };
+
+  // useEffect(() => {
+  //   genresMovies();
+  // }, []);
+
+  // console.log(genresList);
+
   const guestSession = () => {
     const options = { method: 'GET', headers: { accept: 'application/json' } };
 
@@ -96,23 +95,33 @@ const App = () => {
   }, 1000);
 
   return (
-    <div className="main">
-      <SearchInput handlerChange={fetchMovies} />
-      <Tabs items={items} className="tabs" />
-      <MovieList movies={movies} loading={loading} />
-      <GenresMovies />
-      {totalPage > 20 ? (
-        <Pagination
-          className="pagination"
-          total={100}
-          onChange={(pag) => {
-            fetchMovies(value, pag);
-          }}
-        ></Pagination>
-      ) : (
-        ''
-      )}
-    </div>
+    <>
+      <div>
+        <Tabs className="tabs">
+          <TabPane tab="Search" key="1">
+            <SearchInput handlerChange={fetchMovies} />
+            <div className="main">
+              <MovieList movies={movies} loading={loading} genresList={genresList} />
+              {/* <GenresMovies /> */}
+              {totalPage > 20 ? (
+                <Pagination
+                  className="pagination"
+                  total={100}
+                  onChange={(pag) => {
+                    fetchMovies(value, pag);
+                  }}
+                ></Pagination>
+              ) : (
+                ''
+              )}
+            </div>
+          </TabPane>
+          <TabPane tab="Rated" key="2">
+            <div>{ratedFilm}</div>
+          </TabPane>
+        </Tabs>
+      </div>
+    </>
   );
 };
 
