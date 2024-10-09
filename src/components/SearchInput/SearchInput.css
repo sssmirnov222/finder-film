@@ -3,12 +3,8 @@
   height: 25px;
   font-size: 18px;
   border-radius: 18px;
-}
-
-.searchInput::placeholder {
-  font-size: 18px;
-  font-style: italic;
   padding-left: 10px;
+  margin: 10px;
 }
 
 .seachSubmit {

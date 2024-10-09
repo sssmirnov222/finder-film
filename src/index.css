@@ -9,17 +9,3 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
-.alert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.alert__error {
-  border: 8px solid blue;
-  padding: 20px;
-  font-size: 16px;
-  font-family: cursive;
-}

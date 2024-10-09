@@ -8,13 +8,13 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Online>
-      <App />
-    </Online>
-    <Offline>
+    {/* <Online> */}
+    <App />
+    {/* </Online> */}
+    {/* <Offline>
       <div className="alert">
         <Alert type="error" message={'Error, что-то пошло не так!'} className="alert__error"></Alert>
       </div>
-    </Offline>
+    </Offline> */}
   </>
 );
