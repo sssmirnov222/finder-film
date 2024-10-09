@@ -23,16 +23,19 @@ const RatedMovies = (props) => {
       options
     )
       .then((response) => {
+        setError(false);
         console.log(response.status);
         console.log(response);
         if (!response.ok) {
           throw Error;
         }
         response.json();
+        console.log(response);
       })
       .then((response) => {
         console.log(response);
         props.setLoading(false);
+
         setRatedMovie([...response.results]);
       })
       .catch((err) => {
