@@ -46,6 +46,9 @@
 }
 
 .movie__average {
+  position: absolute;
+  right: 0;
+  top: 10;
   color: white;
   margin-right: 10px;
   margin-top: 10px;

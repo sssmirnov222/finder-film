@@ -7,6 +7,7 @@ body {
   justify-content: center;
   bottom: 0;
   left: 50%;
+  cursor: pointer;
 }
 
 .ant-tabs-nav-wrap {
@@ -16,4 +17,9 @@ body {
 
 .ant-tabs-nav::before {
   display: none;
+}
+
+.errorFilm {
+  display: flex;
+  justify-content: center;
 }

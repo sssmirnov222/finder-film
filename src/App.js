@@ -17,6 +17,7 @@ const App = () => {
   const [genresList, setGenresList] = useState([]); // список жанров
   const [questSessionId, setQuestSessuonId] = useState(''); // индетификатор сеанса
   const [tabs, setTabs] = useState(1);
+  const [error, setError] = useState(false);
 
   const handlerTabs = (tab) => {
     setTabs(tab);
@@ -56,7 +57,6 @@ const App = () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        // console.log(response.genres);
         setGenresList([...response.genres]);
       })
       .catch((err) => console.error(err));
@@ -70,6 +70,13 @@ const App = () => {
     )
       .then((res) => res.json())
       .then((res) => {
+        if (res.total_results === 0) {
+          setError(true);
+        }
+        if (value === '') {
+          setError(false);
+        }
+
         setLoading(false);
         setMovies([...res.results]);
         setTotalPage(res.total_results);
@@ -87,6 +94,11 @@ const App = () => {
             <SearchInput handlerChange={fetchMovies} />
             <div className="main">
               <MovieList movies={movies} loading={loading} questSessionId={questSessionId} />
+              {error && (
+                <div className="errorFilm">
+                  <Alert type="error" message={`Нет таких фильмов!`} />
+                </div>
+              )}
               {totalPage > 20 ? (
                 <Pagination
                   className="pagination"

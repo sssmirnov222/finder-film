@@ -24,23 +24,19 @@ const RatedMovies = (props) => {
     )
       .then((response) => {
         setError(false);
-        console.log(response.status);
-        console.log(response);
         if (!response.ok) {
           throw Error;
         }
-        response.json();
-        console.log(response);
+        return response.json();
       })
       .then((response) => {
-        console.log(response);
         props.setLoading(false);
 
         setRatedMovie([...response.results]);
       })
       .catch((err) => {
         props.setLoading(false);
-        console.log(err);
+
         setError(true);
       });
   };
@@ -48,8 +44,6 @@ const RatedMovies = (props) => {
   useEffect(() => {
     rated();
   }, [props.tabs]);
-
-  console.log(ratedMovie);
 
   return (
     <div>

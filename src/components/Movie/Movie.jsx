@@ -5,8 +5,7 @@ import { format, parseISO } from 'date-fns';
 import GenresContext from '../Contex/Contex';
 
 function sliceDescription(text) {
-  return text.split('').slice(0, 100).join('');
-  // return text.split('.').slice(0, 1).join('.');
+  return text.split('.').slice(0, 1).join('.').concat('...');
 }
 
 const Movie = (props) => {
@@ -25,7 +24,6 @@ const Movie = (props) => {
   const filmGenres = (
     <>
       {genresList.map((genre) => {
-        // console.log(props.genre_ids);
         if (props.genre_ids?.includes(genre.id)) {
           return <Tag className="movie__genre">{genre.name}</Tag>;
         }
@@ -56,7 +54,6 @@ const Movie = (props) => {
     }
   };
   const getRatedMovies = (rate) => {
-    // console.log(rate);
     rating(rate);
     const options = {
       method: 'POST',
@@ -72,14 +69,7 @@ const Movie = (props) => {
     fetch(
       `https://api.themoviedb.org/3/movie/${props.id}/rating?api_key=75d86b5d70895a206c14341942e09e7&guest_session_id=${props.questSessionId}`,
       options
-    )
-      .then((response) => {
-        response.json();
-      })
-      .then((response) => {
-        // console.log(response);
-      })
-      .catch((err) => console.error(err));
+    ).catch((err) => console.error(err));
   };
 
   return (
@@ -87,7 +77,11 @@ const Movie = (props) => {
       <div className="movie">
         <div>
           {props.image === null ? (
-            <img src={''} alt=" Not poster" className="movie__image" />
+            <img
+              src={'https://basetop.ru/wp-content/uploads/2022/12/cvvmcx4e-1.jpg'}
+              alt=" Not poster"
+              className="movie__image"
+            />
           ) : (
             <img className="movie__image" src={`http://image.tmdb.org/t/p/w185${props.image}`} alt="not" />
           )}
@@ -98,7 +92,6 @@ const Movie = (props) => {
             <section>
               <div className="movie__header">
                 <h3 className="movie__title">{props.title}</h3>
-                {/* {console.log('ratind start >>>', props.average)} */}
                 <div className="movie__average">{props.rating || rated || props.average.toFixed(0)}</div>
               </div>
 
