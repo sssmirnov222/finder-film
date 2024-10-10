@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/finder-film/static/css/main.ddbfb542.css",
-    "main.js": "/finder-film/static/js/main.e71235b5.js",
+    "main.css": "/finder-film/static/css/main.42c12cb5.css",
+    "main.js": "/finder-film/static/js/main.aab91240.js",
     "index.html": "/finder-film/index.html",
-    "main.ddbfb542.css.map": "/finder-film/static/css/main.ddbfb542.css.map",
-    "main.e71235b5.js.map": "/finder-film/static/js/main.e71235b5.js.map"
+    "main.42c12cb5.css.map": "/finder-film/static/css/main.42c12cb5.css.map",
+    "main.aab91240.js.map": "/finder-film/static/js/main.aab91240.js.map"
   },
   "entrypoints": [
-    "static/css/main.ddbfb542.css",
-    "static/js/main.e71235b5.js"
+    "static/css/main.42c12cb5.css",
+    "static/js/main.aab91240.js"
   ]
 }
